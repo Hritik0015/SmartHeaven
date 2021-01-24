@@ -22,8 +22,7 @@ const Buyer = mongoose.model('Buyer',{
 
     email : {
         type: String,
-        required: true,
-        unique: true
+        
     },
 
     gender : {
