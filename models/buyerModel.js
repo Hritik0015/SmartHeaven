@@ -5,11 +5,15 @@ const Buyer = mongoose.model('Buyer',{
 
 
     firstName : {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
 
     lastName : {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
 
     contact : {
@@ -17,7 +21,9 @@ const Buyer = mongoose.model('Buyer',{
     },
 
     email : {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
 
     gender : {
