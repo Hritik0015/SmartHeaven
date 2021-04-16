@@ -82,6 +82,54 @@ router.get('/show/product',function(req,res){
     })
 })
 
+router.put('/update/product/:id',function(req,res){
+    const id=req.params.id;
+    const name=req.body.name;
+    const price =req.body.price;
+    const qty= req.body.qty;
+    const specification = req.body.specification;
+    
+    User.updateOne({_id:id},{name:name}).then(function(result){
+        res.status(202).json({message:"product has been updated"})
+        
+})
+
+User.updateOne({_id:id},{specification:specification}).then(function(){
+    console.log("Updated")
+})
+
+User.updateOne({_id:id},{price:price}).then(function(){
+    console.log("Updated")
+})
+
+User.updateOne({_id:id},{qty:qty}).then(function(){
+    console.log("Updated")
+})
+
+.catch(function(err){res.status(500).json({message:err,status:false})})
+})
+
+
+
+
+
+
+
+
+
+
+
+router.delete('/delete/product/:id',function(req,res){
+    const id=req.params.id;
+
+    User.deleteOne({_id : id})
+    .then(function(result){
+        res.status(200).json({success:true,message:"product has been deleted"})
+    })
+        .catch(function(err){res.status(500).json({message:err,status:false})})
+    });
+
+
 
 //read
 router.get('/product/all',function(req,res){
