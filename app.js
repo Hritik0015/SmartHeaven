@@ -1,19 +1,21 @@
-const mongoose = require('mongoose'); // to connect with mangodb and database related task
-const express = require('express'); 
-const { strict } = require('assert');
-const bodyParser = require('body-parser');
+const express=require('express')
+const bodyParser=require('body-parser')
+const mongoose=require('mongoose')
+const cors=require('cors')
+const db=require('./database/db');
+const register_route=require('./route/register_route');
 
-const db= require('./database/db');
-const buyerRoute= require('./route/buyerRoute');
+const path=require('path');
 
 
-//json parsing data
-const app = express();
+const publicDir=path.join(__dirname,'');
+
+var app=express();
+app.use(express.static(publicDir))
+app.use(cors())
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:false}))
 
-app.use(buyerRoute);  
+app.use(register_route)
 
-
-
-    app.listen(900);
+app.listen(90)
