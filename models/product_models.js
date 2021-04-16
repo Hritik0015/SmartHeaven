@@ -26,7 +26,11 @@ const User=mongoose.model('product',{
         require:true
        
     },
-
+    prdimage:{
+        type:String,
+        require:true
+        
+    }
 })
 
 module.exports=User;
