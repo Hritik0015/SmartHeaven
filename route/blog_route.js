@@ -57,7 +57,15 @@ const upload=require('../middleware/upload')
 
 
 
-   
+            router.delete('/delete/blog/:id',function(req,res){
+                const id=req.params.id;
+            
+                blog.deleteOne({_id : id})
+                .then(function(result){
+                    res.status(200).json({message:"blog has been deleted"})
+                })
+                    .catch(function(err){res.status(500).json({message:err,status:false})})
+                });
 
 
 
