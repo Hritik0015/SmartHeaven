@@ -35,6 +35,26 @@ const upload=require('../middleware/upload')
             })
             
 
+            router.put('/update/blog/:id',function(req,res){
+                const id=req.params.id;
+                const title=req.body.title;
+                const message =req.body.message;
+                
+                
+                blog.updateOne({_id:id},{title:title}).then(function(result){
+                    res.status(202).json({message:"blog has been updated"})
+                    
+            })
+            
+            blog.updateOne({_id:id},{message:message}).then(function(){
+                console.log("Updated")
+            })
+            
+        
+            
+            .catch(function(err){res.status(500).json({message:err,status:false})})
+            })
+
 
 
    
