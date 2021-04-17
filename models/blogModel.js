@@ -14,7 +14,10 @@ const blog=mongoose.model('Blog',{
         
     },
 
-
+    photo:{
+        type:String,
+        require:true
+    }
 
 
 })
