@@ -35,6 +35,17 @@ router.get('/show/message',function(req,res){
 
 
 
+router.delete('/delete/message/:id',function(req,res){
+    const id=req.params.id;
+
+    contact.deleteOne({_id : id})
+    .then(function(result){
+        res.status(200).json({message:"Message has been deleted"})
+    })
+        .catch(function(err){res.status(500).json({message:err,status:false})})
+    });
+
+
 
 //read
 router.get('/message/all',function(req,res){
