@@ -1,6 +1,8 @@
 const mongoose=require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/Assignment',{
-    useNewUrlParser:true,
-    useCreateIndex:true,
-    useUnifiedTopology:true
+
+mongoose.connect('mongodb://127.0.0.1:27017/batch19a',{
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology : true
+
 })
